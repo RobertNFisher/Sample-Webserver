@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" style = "background-color: #cdba96;">
+<head>
+    <meta charset="UTF-8">
+    <title>Area Select</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body style = "margin-left: 15%;
+    margin-right: 15%;
+    background-color: #ffe7ba;
+    border-style: groove;
+    border-width: 4px;
+    padding: 15px;
+    border-color: #8b7e66;">
+    <form action="/area_info ">
+        <h1>Select an Area</h1>
+
+        <label ></label>
+        <select name="area-select" size="5">
+            % for area in area_list:
+                <option value="{{area[0]}}">{{area[1]}}</option>
+            % end
+
+        </select>
+
+        <p>
+        <input type="submit" value="Get Area Information"/>
+        </p>
+
+    </form>
+</body>
+</html>

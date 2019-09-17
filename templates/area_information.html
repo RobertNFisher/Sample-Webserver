@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" style = "background-color: #cdba96;">
+<head>
+    <meta charset="UTF-8">
+    <title>Area_Information</title>
+    <link rel="stylesheet" href="./style1.css"/>
+</head>
+<body style = "margin-left: 15%;
+    margin-right: 15%;
+    background-color: #ffe7ba;
+    border-style: groove;
+    border-width: 4px;
+    padding: 15px;
+    border-color: #8b7e66;">
+    <form action="/location_info">
+    <h1>Area:{{a_name}}</h1>
+    <h2>Area id:{{area_id}}</h2>
+
+    <div>
+        <label value="longitude" style = "border-style: hidden; background-color: lightgray;
+        width: 10em; text-align: left">Longitude:</label>
+        <label>{{lon}}</label>
+    </div>
+    <div>
+        <label value="latitude" style = "border-style: hidden; background-color: lightgray;
+        width: 10em">Latitude:</label>
+        <label>{{lat}}</label>
+    </div>
+    <div>
+        <label value="average_measure" style = "border-style: hidden; background-color: lightgray;
+        width: 10em">Average Measure:</label>
+        <label>{{a_measure}}</label>
+    </div>
+
+
+    <h2>Locations</h2>
+
+        % if locations.__len__() > 0:
+    <table class="grid" style = "border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;
+    display: table; display: table-row; display: table-cell;">
+        <tr>
+            <th style = "background-color: #ccc; border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">
+                ID
+            </th>
+            <th style = "background-color: #ccc; text-align: center;
+                 border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">
+                Name
+            </th>
+            <th style = "background-color: #ccc;
+             border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">
+                Altitude
+            </th>
+        </tr>
+            % a_num = 1
+            % for location in locations:
+                <tr>
+                   <td  style = " border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">
+                       <button value= "{{location[0]}}" name="location_selected" >{{a_num}}</button></td>
+                    % a_num += 1
+                    <td style = "text-align: center;   border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">{{location[1]}}</td>
+                    <td  style = " border-style: solid;
+  border-collapse: collapse;
+  border-width: 3px;
+  padding: 5px;">{{location[2]}}</td>
+                </tr>
+            % end
+        % else:
+            <label>
+                No locations for given area
+            </label>
+        % end
+
+
+    </table>
+        </form>
+</body>
+</html>
